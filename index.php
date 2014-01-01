@@ -9,6 +9,8 @@
    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
 </head>
 <body>
+   <?php include_once("../analyticstracking.php") ?>
+
    <!-- The Header should go hear, code background, "The Blog" title -->
    <!-- NavBar is on the side? Either that or list of blog titles -->
    <header>
