@@ -1,4 +1,4 @@
-function moarPosts() {
+function moar_posts() {
 
    if (window.XMLHttpRequest) {
       xmlhttp = new XMLHttpRequest();
@@ -9,21 +9,21 @@ function moarPosts() {
 
    xmlhttp.onreadystatechange = function() {
       if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
-         var minPost = document.getElementById('minPost').innerHTML;
-         var moarPostsButton = document.getElementById('moarPosts');
-         var lastPostCounter = document.getElementById('lastPostMade');
+         var min_post = document.getElementById('min_post').innerHTML;
+         var moar_posts_button = document.getElementById('moar_posts');
+         var last_post_counter = document.getElementById('last_post_made');
          var all_posts = document.getElementById('all_posts');
          var top_post = document.getElementById('current_top_post');
 
-         lastPostCounter.parentNode.removeChild(lastPostCounter);
+         last_post_counter.parentNode.removeChild(last_post_counter);
          top_post.parentNode.removeChild(top_post);
 
          all_posts.innerHTML = all_posts.innerHTML + "\n" + xmlhttp.responseText;
          
-         lastPostCounter = document.getElementById('lastPostMade');
+         last_post_counter = document.getElementById('last_post_made');
          
-         if (minPost == lastPostCounter.innerHTML) {
-            moarPostsButton.parentNode.removeChild(moarPostsButton);
+         if (min_post == last_post_counter.innerHTML) {
+            moar_posts_button.parentNode.removeChild(moar_posts_button);
          }
 
          var $body = $('html, body');
@@ -36,10 +36,10 @@ function moarPosts() {
    }
 
    // Get lowest post id placed in html somewhere or something
-   lastPostId = document.getElementById('lastPostMade').innerHTML;
+   lastPostId = document.getElementById('last_post_made').innerHTML;
 
    //alert("Fetching next two posts with id's less than " + lastPostId);
-   xmlhttp.open("GET","getPosts.php?q="+lastPostId,true);
+   xmlhttp.open("GET","get_posts.php?q="+lastPostId,true);
    xmlhttp.send();
 
 }

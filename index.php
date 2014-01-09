@@ -41,10 +41,10 @@
          </div>
          <div class='col-md-8' id='content_pane'>
             <div id='all_posts'>
-               <?php include 'getPosts.php';?>
+               <?php include 'get_posts.php';?>
             </div>
             <div class='row'>
-               <div id='moarPosts' class='post well lead' onclick='moarPosts()'>Moar Posts</div>
+               <div id='moar_posts' class='post well lead' onclick='moar_posts()'>Moar Posts</div>
             </div>
             <br/><br/>
          </div>

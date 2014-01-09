@@ -43,12 +43,12 @@
       $lastId = $row['id'];
    }
 
-   echo "<div id='lastPostMade'>".$lastId."</div>";
+   echo "<div id='last_post_made'>".$lastId."</div>";
    
    if ($q == 0) 
    {
       $row = mysqli_fetch_array($min);
-      echo "<div id='minPost'>".$row['MIN(id)']."</div>";
+      echo "<div id='min_post'>".$row['MIN(id)']."</div>";
    }
 
    mysqli_close($con);

@@ -56,15 +56,15 @@ header h2 {
    margin-left:-20px;
 }
 
-#moarPosts {
+#moar_posts {
    text-align:center;
    cursor:pointer;
 }
 
-#lastPostMade {
+#last_post_made {
    display:none;
 }
 
-#minPost {
+#min_post {
    display:none;
 }
