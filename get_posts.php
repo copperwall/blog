@@ -35,7 +35,6 @@
       echo "<div class='post well'>\n";
       echo "<h2>" . $row['title'] . "</h2>";
       echo $row['Month']." ".$row['Day'].", ".$row['Year'];
-      echo "\n<br/><br/>\n";
       echo "<p>" . $row['body'] . "</p>";
       echo "\n</div>\n";
       echo "</div>\n";

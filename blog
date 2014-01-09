@@ -16,6 +16,7 @@ title = text_file.readline().rstrip()
 
 # This new way of reading in text. It continues reading 
 body = markdown.markdown(text_file.read())
+body = body.replace('"', '\\"')
 
 # This is the old way of getting getting the body of the post
 # body = text_file.read().replace('\n\n', "</p><p>")
@@ -26,7 +27,7 @@ db = MySQLdb.connect("","","", "")
 
 cursor = db.cursor()
 
-cursor.execute('INSERT INTO Posts (title, body, datePosted) VALUES (QUOTE("{}"), QUOTE("{}"), DATE(DATE_SUB(NOW(),INTERVAL 8 HOUR)))'.format(title, body))
+cursor.execute('INSERT INTO Posts (title, body, datePosted) VALUES ("{}", "{}", DATE(DATE_SUB(NOW(),INTERVAL 8 HOUR)))'.format(title, body))
 
 # Clean up
 cursor.close()
