@@ -11,7 +11,7 @@
 <body>
    <?php include_once("../analyticstracking.php") ?>
 
-   <!-- The Header should go hear, code background, "The Blog" title -->
+   <!-- The Header should go here, code background, "The Blog" title -->
    <!-- NavBar is on the side? Either that or list of blog titles -->
    <header>
       <h1>The OpperBlog</h1>
