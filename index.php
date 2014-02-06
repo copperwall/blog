@@ -21,22 +21,15 @@
       <div class='row'>
          <div class='col-md-4 well .hidden-xs' id='info_pane'>
             <!-- Nav or description goes here -->
-            <h5>Thoughts and Such</h5>
+            <img id='personal_picture' src='me.png'/>
+            <h3>Chris Opperwall</h3>
+<!--            <a id='twitter_link' target='_blank' href='http://twitter.com/copperwall'>@copperwall</a> -->
+            <a href="https://twitter.com/copperwall" class="twitter-follow-button" data-show-count="false" data-lang="en">Follow @copperwall</a>
+            <br/>
+            <h4>Hey!</h4>
             <p>
-            I use this space to post anything new with my site, and any new projects or thoughts I feel like sharing.
-            </p>
-            <h5>What is this?</h5>
-            <p>My blog!</p>
-            <p>
-            I built this using
-               <ul>
-                  <li><strong>MySQL</strong></li>
-                  <li><strong>PHP</strong></li>
-                  <li><strong>HTML/CSS + Bootstrap</strong></li>
-                  <li><strong>Python</strong></li>
-                  <li><strong>JavaScript (AJAX)</strong></li>
-               </ul>
-            Each post gets written in plaintext, and then parsed and inserted by a Python script.<br/>The MySQL database is then queried through php each time the page loads.
+               I like to push my thoughts here every once in a while. I normally like to post about how my software projects are going, or anything else that I feel compelled to write about.</p>
+            <p> I prefer to spend my time reading what ever people have written, so I try to only post opinion pieces if I feel rather confident on the subject. If you like (or have criticisms on) a particular post or article, let me know! I would really appreciate any feedback you could give.
             </p>
          </div>
          <div class='col-md-8' id='content_pane'>
@@ -50,5 +43,8 @@
          </div>
       </div>
    </div>
+
+<!-- Twitter API scripts -->
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
 </body>
 </html>
