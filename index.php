@@ -2,6 +2,7 @@
 <html>
 <head>
    <title>The OpperBlog</title>
+   <meta name='viewport' content='width=device-width, initial-scale=1'/>
    <link rel='stylesheet' type='text/css' href='../bootstrap/css/bootstrap.css'/>
    <link rel='stylesheet' type='text/css' href='blog_style.css'/>
    <link rel='stylesheet' media='screen and (max-device-width: 768px)'/>
@@ -19,7 +20,7 @@
    <br/><br/>
    <div class='container'>
       <div class='row'>
-         <div class='col-md-4 well .hidden-xs' id='info_pane'>
+         <div class='tiny col-md-4 well' id='info_pane'>
             <!-- Nav or description goes here -->
             <img id='personal_picture' src='me.png'/>
             <h3>Chris Opperwall</h3>
