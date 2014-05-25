@@ -29,9 +29,13 @@ function moar_posts() {
          var $body = $('html, body');
          var $top_post = $('#current_top_post');
 
+         /* This is taken out because new pages are added as the user scrolls
+          * to the bottom of the page */
+         /*
          $body.animate({
             scrollTop: $top_post.offset().top - 30
          }, 400);
+         */
       }
    }
 
@@ -43,3 +47,9 @@ function moar_posts() {
    xmlhttp.send();
 
 }
+
+$(window).scroll(function () {
+   if ($(window).scrollTop() + $(window).height() == $(document).height()) {
+      moar_posts();
+   }
+});

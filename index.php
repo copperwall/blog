@@ -6,8 +6,8 @@
    <link rel='stylesheet' type='text/css' href='../bootstrap/css/bootstrap.css'/>
    <link rel='stylesheet' type='text/css' href='blog_style.css'/>
    <link rel='stylesheet' media='screen and (max-device-width: 768px)'/>
-   <script type='text/javascript' src='ajax.js'></script>
    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
+   <script type='text/javascript' src='ajax.js'></script>
 </head>
 <body>
    <?php include_once("../analyticstracking.php") ?>
