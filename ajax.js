@@ -9,11 +9,11 @@ function moar_posts() {
 
    xmlhttp.onreadystatechange = function() {
       if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
-         var min_post = document.getElementById('min_post').innerHTML;
-         var moar_posts_button = document.getElementById('moar_posts');
-         var last_post_counter = document.getElementById('last_post_made');
-         var all_posts = document.getElementById('all_posts');
-         var top_post = document.getElementById('current_top_post');
+         var min_post = document.getElementById('min_post').innerHTML,
+            moar_posts_button = document.getElementById('moar_posts'),
+            last_post_counter = document.getElementById('last_post_made'),
+            all_posts = document.getElementById('all_posts'),
+            top_post = document.getElementById('current_top_post');
 
          last_post_counter.parentNode.removeChild(last_post_counter);
          top_post.parentNode.removeChild(top_post);
@@ -43,7 +43,7 @@ function moar_posts() {
    lastPostId = document.getElementById('last_post_made').innerHTML;
 
    //alert("Fetching next two posts with id's less than " + lastPostId);
-   xmlhttp.open("GET","get_posts.php?q="+lastPostId,true);
+   xmlhttp.open("GET","get_posts.php?getId="+lastPostId,true);
    xmlhttp.send();
 
 }

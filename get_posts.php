@@ -1,54 +1,53 @@
 <?php
-   $q = intval($_GET['q']); // q = 0 if no q request
+   $getId = intval($_GET['getId']);
 
    // Create Connection
-   $con=mysqli_connect("localhost", "read",  "", "blog");
+   $db = new PDO('mysql:host=localhost;dbname=blog', 'read', '');
 
-   // Check connection
-   if (mysqli_connect_errno($con))
-   { 
-      echo "Failed to connect to MYSQL: " . mysqli_connect_error();
+   if ($getId != 0) {
+      $query = <<<EOT
+         SELECT  id, title, MONTHNAME(date) AS Month,
+         DAY(date) AS Day, YEAR(date) AS Year, body
+         FROM posts WHERE id < ? ORDER BY id DESC LIMIT 2
+EOT;
+      $stmt = $db->prepare($query);
+   } else {
+      $query = <<<EOT
+         SELECT id, title, MONTHNAME(date) AS Month,
+         DAY(date) AS Day, YEAR(date) AS Year, body
+         FROM posts ORDER BY id DESC LIMIT 2
+EOT;
+
+      $stmt = $db->prepare();
+      $min_stmt = $db->prepare('SELECT MIN(id) AS min FROM posts');
    }
 
-   if ($q != 0)
-   {
-      $result = mysqli_query($con,"SELECT  id, title, MONTHNAME(datePosted) AS Month,
-                                   DAY(datePosted) AS Day, YEAR(datePosted) AS Year, body
-                                   FROM Posts WHERE id < ".$q." ORDER BY id DESC LIMIT 2");
-   }
-   else
-   {
-      $result = mysqli_query($con,"SELECT id, title, MONTHNAME(datePosted) AS Month,
-                                   DAY(datePosted) AS Day, YEAR(datePosted) AS Year, body 
-                                   FROM Posts ORDER BY id DESC LIMIT 2");
-
-      $min = mysqli_query($con, "SELECT MIN(id) FROM Posts");
-   }
-
-   $lastId = $q;
+   $stmt = $db->prepare($query);
+   $lastId = $getId;
 
    echo "<div id='current_top_post'></div>";
    
-   while($row = mysqli_fetch_array($result))
-   {
-      echo "<div class='row'>\n";
-      echo "<div class='post well'>\n";
-      echo "<h2>" . $row['title'] . "</h2>";
-      echo $row['Month']." ".$row['Day'].", ".$row['Year'];
-      echo "<p>" . $row['body'] . "</p>";
-      echo "\n</div>\n";
-      echo "</div>\n";
-      echo "<br/><br/>\n";
-      $lastId = $row['id'];
+   if ($stmt->execute([$getId])) {
+      while($row = $stmt->fetch()) {
+         echo "<div class='row'>\n";
+         echo "<div class='post well'>\n";
+         echo "<h2>" . $row['title'] . "</h2>";
+         echo $row['Month']." ".$row['Day'].", ".$row['Year'];
+         echo "<p>" . $row['body'] . "</p>";
+         echo "\n</div>\n";
+         echo "</div>\n";
+         echo "<br/><br/>\n";
+         $lastId = $row['id'];
+      }
    }
 
-   echo "<div id='last_post_made'>".$lastId."</div>";
+   echo "<div id='last_post_made'>$lastId</div>";
    
-   if ($q == 0) 
-   {
-      $row = mysqli_fetch_array($min);
-      echo "<div id='min_post'>".$row['MIN(id)']."</div>";
+   if ($getId == 0) {
+      $min_stmt->execute();
+      $row = $min_stmt->fetch();
+      echo '<div id=\'min_post\'>' . $row['min'] . '</div>';
    }
 
-   mysqli_close($con);
-?>
+   // Close connection
+   $db = null;

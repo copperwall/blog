@@ -35,7 +35,7 @@
          </div>
          <div class='col-md-8' id='content_pane'>
             <div id='all_posts'>
-               <?php include 'get_posts.php';?>
+               <?php include('get_posts.php') ?>
             </div>
             <div class='row'>
                <div id='moar_posts' class='post well lead' onclick='moar_posts()'>Moar Posts</div>
