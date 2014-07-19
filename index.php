@@ -3,11 +3,9 @@
 <head>
    <title>The OpperBlog</title>
    <meta name='viewport' content='width=device-width, initial-scale=1'/>
-   <link rel='stylesheet' type='text/css' href='../bootstrap/css/bootstrap.css'/>
+   <link rel='stylesheet' type='text/css' href='../bootstrap/css/bootstrap.min.css'/>
    <link rel='stylesheet' type='text/css' href='blog_style.css'/>
    <link rel='stylesheet' media='screen and (max-device-width: 768px)'/>
-   <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
-   <script type='text/javascript' src='ajax.js'></script>
 </head>
 <body>
    <?php include_once("../analyticstracking.php") ?>
@@ -45,7 +43,11 @@
       </div>
    </div>
 
-<!-- Twitter API scripts -->
-<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+   <!-- Defer JS for faster pageload -->
+   <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
+   <script type='text/javascript' src='ajax.js'></script>
+
+   <!-- Twitter API scripts -->
+   <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
 </body>
 </html>

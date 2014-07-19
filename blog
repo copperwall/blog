@@ -27,7 +27,7 @@ db = MySQLdb.connect("","","", "")
 
 cursor = db.cursor()
 
-cursor.execute('INSERT INTO Posts (title, body, datePosted) VALUES ("{}", "{}", DATE(DATE_SUB(NOW(),INTERVAL 8 HOUR)))'.format(title, body))
+cursor.execute('INSERT INTO posts (title, body, datePosted) VALUES ("{}", "{}", DATE(DATE_SUB(NOW(),INTERVAL 8 HOUR)))'.format(title, body))
 
 # Clean up
 cursor.close()
