@@ -22,30 +22,18 @@ function moar_posts() {
          
          last_post_counter = document.getElementById('last_post_made');
          
+         // Remove "Moar Posts" button if there are no more posts
          if (min_post == last_post_counter.innerHTML) {
             moar_posts_button.parentNode.removeChild(moar_posts_button);
          }
-
-         var $body = $('html, body');
-         var $top_post = $('#current_top_post');
-
-         /* This is taken out because new pages are added as the user scrolls
-          * to the bottom of the page */
-         /*
-         $body.animate({
-            scrollTop: $top_post.offset().top - 30
-         }, 400);
-         */
       }
    }
 
    // Get lowest post id placed in html somewhere or something
    lastPostId = document.getElementById('last_post_made').innerHTML;
 
-   //alert("Fetching next two posts with id's less than " + lastPostId);
-   xmlhttp.open("GET","get_posts.php?getId="+lastPostId,true);
+   xmlhttp.open("GET","get_posts.php?getId=" + lastPostId,true);
    xmlhttp.send();
-
 }
 
 $(window).scroll(function () {

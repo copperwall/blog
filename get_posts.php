@@ -10,7 +10,6 @@
          DAY(date) AS Day, YEAR(date) AS Year, body
          FROM posts WHERE id < ? ORDER BY id DESC LIMIT 2
 EOT;
-      $stmt = $db->prepare($query);
    } else {
       $query = <<<EOT
          SELECT id, title, MONTHNAME(date) AS Month,
@@ -18,7 +17,6 @@ EOT;
          FROM posts ORDER BY id DESC LIMIT 2
 EOT;
 
-      $stmt = $db->prepare();
       $min_stmt = $db->prepare('SELECT MIN(id) AS min FROM posts');
    }
 
@@ -27,6 +25,12 @@ EOT;
 
    echo "<div id='current_top_post'></div>";
    
+   // TODO Make this return JSON, and handle templating in JS
+   // INFO
+   //
+   // Title
+   // Month, Day, Year (This could just be returned as a timestamp)
+   // Body
    if ($stmt->execute([$getId])) {
       while($row = $stmt->fetch()) {
          echo "<div class='row'>\n";
